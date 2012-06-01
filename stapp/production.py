@@ -1,0 +1,2 @@
+
+from stapp.settings import *

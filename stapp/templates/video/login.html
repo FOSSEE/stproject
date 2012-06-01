@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+
+{% block title %} STProject {% endblock %}
+
+
+{% block sidebar %}
+{% endblock %}
+
+{% block video %}
+<form action='' method=post >
+{% csrf_token %}
+<center><table class=span1>
+        {{ form.as_table }}
+        <tr><td><button class="btn" type="submit">Login</button><button class="btn" type="reset">Cancel</button></center>
+        <br><center><a href="{{URL_ROOT}}/exam/forgotpassword/">Forgot Password?</a></center><br>
+        <center><a href="{{URL_ROOT}}/video/register/">New User? Sign-Up </a></center>
+        </form>
+
+{% endblock%}

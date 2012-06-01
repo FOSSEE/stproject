@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+
+{% block title %} STProject {% endblock %}
+
+
+{% block sidebar %}
+{% for video in videos %}
+  <a href='/video/view/{{video.id}}'>{{ video.video_name }}</a><br>
+{% endfor %}
+{% endblock %}
+
+{% block video %}
+         
+  <video width="700" height="400" controls="controls">
+      <source src="{{play.video_file.url}}">
+  </video>  {{ play.id }}
+ 
+
+
+     	 
+      
+{% endblock%}
