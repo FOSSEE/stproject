@@ -34,6 +34,6 @@ downloads
 *.db-journal
 *.db
 wsgi.log
-stapp/video/migrations
 *.ogv
 *.mp4
+videos/*
