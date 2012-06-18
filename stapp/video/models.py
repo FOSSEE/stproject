@@ -17,10 +17,3 @@ class Module(models.Model):
     def __unicode__(self):
         return self.name
 
-class Profile(models.Model):
-    """User Profile describes data/information about regirstered user."""
-    user = models.OneToOneField(User)
-    roll_number = models.CharField(max_length=20)
-    institute = models.CharField(max_length=128)
-    department = models.CharField(max_length=64)
-    position = models.CharField(max_length=64)
