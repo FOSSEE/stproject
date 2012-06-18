@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 class Video(models.Model):
     """Videos to be uploaded.."""
     name = models.CharField(max_length=128)
     filename = models.FileField(upload_to="videos")
     description = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
         return self.name
