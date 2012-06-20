@@ -150,3 +150,6 @@ LOGGING = {
         },
     }
 }
+
+
+AUTH_PROFILE_MODULE = "stapp.UserProfile"
