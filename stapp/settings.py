@@ -127,6 +127,7 @@ INSTALLED_APPS = (
      'south',
 
      'video',
+     'userprofile',
 )
 
 # A sample logging configuration. The only tangible logging
