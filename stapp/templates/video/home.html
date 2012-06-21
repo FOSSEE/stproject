@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+<!DOCTYPE html>
+
+{% block title %} STProject {% endblock %}
+
+{% block video %}
+
+<div class="hero-unit">
+  <h3>Latest Video</h3>    
+  <video width="700" height="400" controls="controls" id="mainvideo">
+      <source src="{{play.filename.url}}">
+  </video>
+  <div id="footnote"></div>
+</div>
+
+{% for module in modules %}
+<div class="row">
+    <div span="12">
+        <h2>{{module.name}}</h2>
+        {% for video in module.video_list.all %}
+            <video width="150" height="150" controls="controls">
+                <source src="{{video.filename.url}}">
+            </video>
+            {{video.name}}
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endblock%}
