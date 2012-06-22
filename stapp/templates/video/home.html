@@ -8,7 +8,7 @@
 
 <div class="hero-unit">
   <h3>Latest Video</h3>    
-  <video width="700" height="400" controls="controls" id="mainvideo">
+  <video width="700" height="400" controls="controls" id="mainvideo" poster="{{play.thumbnail.url}}">
       <source src="{{play.filename.url}}">
   </video>
   <div id="footnote"></div>
@@ -20,7 +20,7 @@
         <h2>{{module.name}}</h2>
         {% for video in module.video_list.all %}
             <video width="150" height="150" controls="controls">
-                <source src="{{video.filename.url}}">
+                <source src="{{video.filename.url}}" poster="{{video.thumbnail.url}}">
             </video>
             {{video.name}}
         {% endfor %}
