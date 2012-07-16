@@ -26,7 +26,7 @@ def handle_thumb(image_obj, thumb_obj, width, height):
 
         t.save(settings.MEDIA_ROOT + thumb, 'JPEG')
         os.chmod(settings.MEDIA_ROOT + thumb, 0666)
-        thumb_obj = image_obj.url + ('-small.jpg')
+        thumb_obj = image_obj.path + ('-small.jpg')
         #except:
         #    pass
     return thumb_obj
