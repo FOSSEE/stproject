@@ -36,4 +36,4 @@ downloads
 wsgi.log
 *.ogv
 *.mp4
-videos/*
+uploads/*
