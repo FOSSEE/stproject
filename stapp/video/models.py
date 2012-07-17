@@ -4,7 +4,7 @@ from signals import delete_files
 
 import settings
 
-
+import uuid
 import datetime
 import Image, os
 
@@ -31,12 +31,22 @@ def handle_thumb(image_obj, thumb_obj, width, height):
     return thumb_obj
 
 
+def get_file_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('uploads/videos', filename)
+
+def get_image_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join("uploads/screenshots", filename)
+
 class Video(models.Model):
     """Videos to be uploaded.."""
     name = models.CharField(max_length=128)
-    filename = models.FileField(upload_to="uploads/videos")
-    image = models.ImageField(upload_to="uploads/screenshots")
-    thumbnail = models.ImageField(upload_to='uploads/screenshots', \
+    filename = models.FileField(upload_to=get_file_path)
+    image = models.ImageField(upload_to=get_image_path)
+    thumbnail = models.ImageField(upload_to=get_image_path, \
         blank=True, null=True, editable=False)
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
