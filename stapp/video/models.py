@@ -10,9 +10,8 @@ import Image, os
 
 def handle_thumb(image_obj, thumb_obj, width, height):
     # create thumbnail
-    if image_obj and not thumb_obj:
-        thumb = image_obj.path + ('-small.jpg')
-        #try:
+    thumb = str(image_obj) + ('-small.jpg')
+    try:
         t = Image.open(image_obj.path)
 
         w, h = t.size
@@ -26,9 +25,9 @@ def handle_thumb(image_obj, thumb_obj, width, height):
 
         t.save(settings.MEDIA_ROOT + thumb, 'JPEG')
         os.chmod(settings.MEDIA_ROOT + thumb, 0666)
-        thumb_obj = image_obj.path + ('-small.jpg')
-        #except:
-        #    pass
+        thumb_obj = thumb
+    except:
+        pass
     return thumb_obj
 
 
