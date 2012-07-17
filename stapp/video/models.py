@@ -4,15 +4,14 @@ from signals import delete_files
 
 import settings
 
-
+import uuid
 import datetime
 import Image, os
 
 def handle_thumb(image_obj, thumb_obj, width, height):
     # create thumbnail
-    if image_obj and not thumb_obj:
-        thumb = image_obj.path + ('-small.jpg')
-        #try:
+    thumb = str(image_obj) + ('-small.jpg')
+    try:
         t = Image.open(image_obj.path)
 
         w, h = t.size
@@ -26,18 +25,28 @@ def handle_thumb(image_obj, thumb_obj, width, height):
 
         t.save(settings.MEDIA_ROOT + thumb, 'JPEG')
         os.chmod(settings.MEDIA_ROOT + thumb, 0666)
-        thumb_obj = image_obj.path + ('-small.jpg')
-        #except:
-        #    pass
+        thumb_obj = thumb
+    except:
+        pass
     return thumb_obj
 
+
+def get_file_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('uploads/videos', filename)
+
+def get_image_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join("uploads/screenshots", filename)
 
 class Video(models.Model):
     """Videos to be uploaded.."""
     name = models.CharField(max_length=128)
-    filename = models.FileField(upload_to="uploads/videos")
-    image = models.ImageField(upload_to="uploads/screenshots")
-    thumbnail = models.ImageField(upload_to='uploads/screenshots', \
+    filename = models.FileField(upload_to=get_file_path)
+    image = models.ImageField(upload_to=get_image_path)
+    thumbnail = models.ImageField(upload_to=get_image_path, \
         blank=True, null=True, editable=False)
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)

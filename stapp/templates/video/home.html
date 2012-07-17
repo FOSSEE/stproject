@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 <!DOCTYPE html>
-<script src="{{ URL_BASE }}/static/video/css/jquery-1.7.2.js" type="javascript" />
 {% block title %} STProject {% endblock %}
     
 
@@ -31,10 +30,7 @@ function myfunction(video,image)
     <div span="12">
         <h2>{{module.name}}</h2>
         {% for video in module.video_list.all %}
-            <!--video width="150" height="150" controls="controls">
-                <source src="{{video.filename.url}}" poster="{{video.thumbnail.url}}">
-            </video-->
-        
+            
       <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}") > <img src='{{video.image.url}}' name='video' id='video{{forloop.counter}}' /></a>
             
             {{video.name}}
