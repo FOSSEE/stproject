@@ -8,7 +8,7 @@
 
 <div class="hero-unit">
   <h3>Latest Video</h3>    
-  <video width="700" height="400" controls="controls" id="mainvideo" poster="{{play.thumbnail.url}}">
+  <video width="700" height="400" controls="controls" id="mainvideo" poster="{{play.image.url}}" preload="metadata">
       <source src="{{play.filename.url}}">
   </video>
   <div id="footnote"></div>
@@ -19,7 +19,7 @@
     <div span="12">
         <h2>{{module.name}}</h2>
         {% for video in module.video_list.all %}
-            <video width="150" height="150" controls="controls" poster="{{video.thumbnail.url}}">
+            <video width="150" height="150" controls="controls" poster="{{video.thumbnail.url}}" preload="metadata">
                 <source src="{{video.filename.url}}" >
             </video>
             {{video.name}}
