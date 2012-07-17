@@ -19,8 +19,8 @@
     <div span="12">
         <h2>{{module.name}}</h2>
         {% for video in module.video_list.all %}
-            <video width="150" height="150" controls="controls">
-                <source src="{{video.filename.url}}" poster="{{video.thumbnail.url}}">
+            <video width="150" height="150" controls="controls" poster="{{video.thumbnail.url}}">
+                <source src="{{video.filename.url}}" >
             </video>
             {{video.name}}
         {% endfor %}
