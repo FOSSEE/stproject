@@ -1,15 +1,27 @@
 {% extends "base.html" %}
 
 <!DOCTYPE html>
-
+<script src="{{ URL_BASE }}/static/video/css/jquery-1.7.2.js" type="javascript" />
 {% block title %} STProject {% endblock %}
+    
 
+{% block script %}
+<script>
+function myfunction(video,image)
+{
+    document.getElementById('mainvideo').poster = image;
+    document.getElementById('mainvideo').src = video;
+   
+}
+</script>
+{% endblock %}
+{% block onload %}  {% endblock onload %}
 {% block video %}
 
 <div class="hero-unit">
   <h3>Latest Video</h3>    
-  <video width="700" height="400" controls="controls" id="mainvideo" poster="{{play.thumbnail.url}}">
-      <source src="{{play.filename.url}}">
+  <video width="700" height="400" controls="controls" id="mainvideo" poster="{{play.image.url}}" src="{{play.filename.url}}">
+
   </video>
   <div id="footnote"></div>
 </div>
@@ -19,12 +31,17 @@
     <div span="12">
         <h2>{{module.name}}</h2>
         {% for video in module.video_list.all %}
-            <video width="150" height="150" controls="controls">
+            <!--video width="150" height="150" controls="controls">
                 <source src="{{video.filename.url}}" poster="{{video.thumbnail.url}}">
-            </video>
+            </video-->
+        
+      <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}") > <img src='{{video.image.url}}' name='video' id='video{{forloop.counter}}' /></a>
+            
             {{video.name}}
         {% endfor %}
     </div>
 </div>
+
+
 {% endfor %}
 {% endblock%}
