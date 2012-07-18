@@ -8,9 +8,8 @@
 <script>
 function myfunction(video,image)
 {
-    document.getElementById('mainvideo').poster = image;
-    document.getElementById('mainvideo').src = video;
-   
+        document.getElementById('mainvideo').poster = image;
+        document.getElementById('mainvideo').src = video;
 }
 </script>
 {% endblock %}
@@ -19,7 +18,7 @@ function myfunction(video,image)
 
 <div class="hero-unit">
   <h3>Latest Video</h3>    
-  <video width="700" height="400" controls="controls" id="mainvideo" poster="{{play.image.url}}" src="{{play.filename.url}}">
+  <video width="700" height="400" controls="controls" id="mainvideo" poster="{{play.image.url}}" preload="none" src="{{play.filename.url}}">
 
   </video>
   <div id="footnote"></div>
