@@ -30,9 +30,7 @@ function myfunction(video,image)
         <h2>{{module.name}}</h2>
         {% for video in module.video_list.all %}
             
-      <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}") > <img src='{{video.image.url}}' name='video' id='video{{forloop.counter}}' /></a>
-            
-            {{video.name}}
+      <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}") > <img src='{{video.thumbnail.url}}' name='video' id='video{{forloop.counter}}' />{{video.name}}</a>
         {% endfor %}
     </div>
 </div>
