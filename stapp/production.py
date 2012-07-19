@@ -1,6 +1,6 @@
 from stapp.settings import *
 DEBUG=False
-TEMPLATE_DEBUG=DEBUG$
+TEMPLATE_DEBUG=DEBUG
 
 
 DATABASES = {
