@@ -1,0 +1,25 @@
+body{
+    padding-top:40px;
+}
+
+.container-fluid{
+    padding-left:0;
+    padding-right:0;
+}
+
+.top-row{
+    background-color:#3c8fc9;
+}
+
+.main-video{
+    padding-top:30px;
+    padding-left:20px;
+    padding-bottom:20px;
+}
+
+.module-list{
+    position:relative; 
+    float:left; 
+    margin-right:30px; 
+    margin-bottom:50px;
+}

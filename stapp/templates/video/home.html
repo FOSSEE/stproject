@@ -14,27 +14,26 @@ function myfunction(video,image)
 </script>
 {% endblock %}
 {% block onload %}  {% endblock onload %}
-{% block video %}
 
-<div class="hero-unit">
-  <h3>Latest Video</h3>    
-  <video width="700" height="400" controls="controls" id="mainvideo" poster="{{play.image.url}}" preload="none" src="{{play.filename.url}}">
+{% block video %}   
+    <video width="640" height="480" controls="controls" id="mainvideo" poster="{{play.image.url}}"          preload="none" src="{{play.filename.url}}">
+    </video>
 
-  </video>
-  <div id="footnote"></div>
-</div>
-
-{% for module in modules %}
-<div class="row">
-    <div span="12">
-        <h2>{{module.name}}</h2>
-        {% for video in module.video_list.all %}
-            
-      <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}") > <img src='{{video.thumbnail.url}}' name='video' id='video{{forloop.counter}}' />{{video.name}}</a>
-        {% endfor %}
-    </div>
-</div>
-
-
-{% endfor %}
 {% endblock%}
+
+{% block video_description %}
+    <h1>{{ play.name }}</h1>
+    <p>{{ play.description }}</p>
+ {% endblock %}
+
+{% block module_list %}
+    {% for module in modules %}
+        <div class="module-list"><h2>{{module.name}}</h2>
+        <h5>{{module.description}}</h5>
+        {% for video in module.video_list.all %}
+        <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}") >{{video.name}}</a>   <br />
+        {% endfor %}</div>
+{% endfor %}
+{% endblock %}
+
+
