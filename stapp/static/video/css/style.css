@@ -2,6 +2,7 @@ body{
     padding-top:40px;
 }
 
+
 .container-fluid{
     padding-left:0;
     padding-right:0;
@@ -9,6 +10,8 @@ body{
 
 .top-row{
     background-color:#3c8fc9;
+    background:-moz-linear-gradient(top,#3c8fc9,#ffffff);
+    background:-webkit-linear-gradient(top,#3c8fc9,#ffffff);
 }
 
 .main-video{
@@ -24,4 +27,8 @@ body{
     margin-bottom:30px;
     width: 250px;
     height:150px;
+}
+
+#videodescription{
+    font-size:14px;
 }

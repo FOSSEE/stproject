@@ -21,14 +21,14 @@ function myfunction(video,image)
 {% block onload %}  {% endblock onload %}
 
 {% block video %}   
-    <video width="100%"  controls="controls" id="mainvideo" poster="{{play.image.url}}"          preload="none" src="{{play.filename.url}}">
+    <video style="border:2px solid black;" width="100%"  controls="controls" id="mainvideo" poster="{{play.image.url}}"          preload="none" src="{{play.filename.url}}">
     </video>
 
 {% endblock%}
 
 {% block video_description %}
     <h1 id="videoname">{{ play.name }}</h1>
-    <p id="videodescription">{{ play.description|safe }}</p>
+    <div id="videodescription">{{ play.description|safe }}</div>
  {% endblock %}
 
 {% block module_list %}
