@@ -21,6 +21,7 @@ body{
     position:relative; 
     float:left; 
     margin-right:30px; 
-    margin-bottom:50px;
+    margin-bottom:30px;
     width: 250px;
+    height:150px;
 }
