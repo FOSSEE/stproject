@@ -8,7 +8,7 @@ from video.views import *
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^video/', include('video.urls')),
+    url(r'^$', include('video.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )
 

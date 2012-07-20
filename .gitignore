@@ -37,3 +37,5 @@ wsgi.log
 *.ogv
 *.mp4
 uploads/*
+stapp/media/*
+local.py
