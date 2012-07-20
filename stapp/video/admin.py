@@ -15,14 +15,14 @@ class CommonMedia:
 
 # let's add it to this model
 site.register(Video,
-  list_display = ('description',),
-  search_fields = ['description',],
+  list_display = ('name',),
+  search_fields = ['name',],
   Media = CommonMedia,
 )
 
 site.register(Module,
-  list_display = ('description',),
-  search_fields = ['description',],
+  list_display = ('name',),
+  search_fields = ['name',],
   Media = CommonMedia,
 )
 #admin.site.register(Video)
