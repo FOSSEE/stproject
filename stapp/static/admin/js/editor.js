@@ -25,7 +25,6 @@ dojo.ready(function(){
   if(textareas && textareas.length){
     dojo.addClass(dojo.body(), "claro");
     textareas.instantiate(dijit.Editor, {
-      styleSheets: "/appmedia/style.css;/appmedia/blog/style.css",
       plugins: [
         "collapsibletoolbar",
         "fullscreen", "viewsource", "|",
