@@ -8,8 +8,13 @@
 <script>
 function myfunction(video,image)
 {
+        //document.getElementById('videoname').innerHTML= videoname;
+        //alert(v);
         document.getElementById('mainvideo').poster = image;
         document.getElementById('mainvideo').src = video;
+
+        //document.getElementById('videodescription').innerHTML= " " + v;
+
 }
 </script>
 {% endblock %}
@@ -22,8 +27,8 @@ function myfunction(video,image)
 {% endblock%}
 
 {% block video_description %}
-    <h1>{{ play.name }}</h1>
-    <p>{{ play.description }}</p>
+    <h1 id="videoname">{{ play.name }}</h1>
+    <p id="videodescription">{{ play.description }}</p>
  {% endblock %}
 
 {% block module_list %}
@@ -31,7 +36,8 @@ function myfunction(video,image)
         <div class="module-list"><h2>{{module.name}}</h2>
         <h5>{{module.description}}</h5>
         {% for video in module.video_list.all %}
-        <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}") >{{video.name}}</a>   <br />
+        <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}");javascript:document.getElementById('videoname').innerHTML={{video.name}}; >{{video.name}}</a>
+   <br />
         {% endfor %}</div>
 {% endfor %}
 {% endblock %}
