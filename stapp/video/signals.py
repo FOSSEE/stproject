@@ -7,4 +7,7 @@ def delete_files(sender, **kwargs):
     #default_storage.delete(school.pdf.path)
     default_storage.delete(video.filename.path)
     default_storage.delete(video.image.path)
-    default_storage.delete(video.thumbnail.path)
+    try:
+        default_storage.delete(video.thumbnail.path)
+    except:
+        pass
