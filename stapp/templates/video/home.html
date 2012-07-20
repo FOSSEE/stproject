@@ -32,14 +32,30 @@ function myfunction(video,image)
  {% endblock %}
 
 {% block module_list %}
-    {% for module in modules %}
-        <div class="module-list"><h2>{{module.name}}</h2>
+    <div class="row-fluid">
+    <h1>Latest Modules</h1>
+    {% for module in latest_modules %}
+        <div class="module-list"><h3>{{module.name}}</h3>
         <h5>{{module.description|safe}}</h5>
         {% for video in module.video_list.all %}
         <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}");javascript:document.getElementById('videoname').innerHTML={{video.name}}; >{{video.name}}</a>
    <br />
         {% endfor %}</div>
-{% endfor %}
+    {% endfor %}
+    </div>
+    
+    <div class="row-fluid">
+    <h1>All Modules</h1>
+    {% for module in all_modules %}
+        <div class="module-list"><h3>{{module.name}}</h3>
+        <h5>{{module.description|safe}}</h5>
+        {% for video in module.video_list.all %}
+        <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}");javascript:document.getElementById('videoname').innerHTML={{video.name}}; >{{video.name}}</a>
+   <br />
+        {% endfor %}</div>
+    {% endfor %}
+    </div>
+
 {% endblock %}
 
 
