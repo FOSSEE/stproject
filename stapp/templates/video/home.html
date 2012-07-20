@@ -28,13 +28,13 @@ function myfunction(video,image)
 
 {% block video_description %}
     <h1 id="videoname">{{ play.name }}</h1>
-    <p id="videodescription">{{ play.description }}</p>
+    <p id="videodescription">{{ play.description|safe }}</p>
  {% endblock %}
 
 {% block module_list %}
     {% for module in modules %}
         <div class="module-list"><h2>{{module.name}}</h2>
-        <h5>{{module.description}}</h5>
+        <h5>{{module.description|safe}}</h5>
         {% for video in module.video_list.all %}
         <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}");javascript:document.getElementById('videoname').innerHTML={{video.name}}; >{{video.name}}</a>
    <br />
