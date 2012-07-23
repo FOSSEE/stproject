@@ -15,6 +15,7 @@ def show(request):
     latest_modules = Module.objects.order_by('-modified')[0:3]
     all_modules = Module.objects.order_by('modified')
 
+
     context = { 'latest_modules' : latest_modules , 'play' : latest_video, 'all_modules':all_modules}
     return render(request, 'video/home.html', context)
     
