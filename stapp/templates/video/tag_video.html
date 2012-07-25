@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %} STProject {% endblock %}
+    
+
+{% block script %}
+<script>
+function changeDetail(video,image,idname,iddesc)
+{
+        document.getElementById('videodescription').innerHTML = document.getElementById(iddesc).value;
+        document.getElementById('videoname').innerHTML = document.getElementById(idname).innerHTML;
+        document.getElementById('mainvideo').poster = image;
+        document.getElementById('mainvideo').src = video;
+}
+</script>
+{% endblock %}
+{% block onload %}  {% endblock onload %}
+
+{% block video %}   
+{% for tag in tags %}
+    <a href="/tags/{{tag}}/">{{tag}}</a>
+{% endfor %}
+    
+{% endblock%}
+
+{% block module_list %}
+    <div class="row-fluid">
+    {% for video in videos %}
+        {{ video.name }}
+    {% endfor %}
+    </div>
+    
+    <div class="row-fluid">
+    <h1>All Modules</h1>
+    {% for module in all_modules %}
+        <div class="module-list"><h3>{{module.name}}</h3>
+        <h5>{{module.description|safe}}</h5>
+        {% for video in module.video_list.all %}
+        <textarea style="display:none;" id=vdesc{{forloop.parentloop.counter}}{{forloop.counter}}>{{video.description}}
+        </textarea>
+        <a id='vname{{forloop.parentloop.counter}}{{forloop.counter}}' href=javascript:changeDetail("{{video.filename.url}}","{{video.image.url}}","vname{{forloop.parentloop.counter}}{{forloop.counter}}","vdesc{{forloop.parentloop.counter}}{{forloop.counter}}");>{{video.name}}</a>
+
+   <br />
+        {% endfor %}</div>
+    {% endfor %}
+    </div>
+
+{% endblock %}
+
+
