@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.signals import post_delete
 from signals import delete_files
+from taggit.managers import TaggableManager
 
 import settings
 
@@ -26,6 +27,7 @@ class Video(models.Model):
     image = models.ImageField(upload_to=get_image_path)
     description = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
+    tags = TaggableManager()
 
     def __unicode__(self):
         return self.name
@@ -41,6 +43,7 @@ class Module(models.Model):
     video_list = models.ManyToManyField(Video)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField()
+    tags = TaggableManager()
 
     def save(self, *args, **kwargs):
         ''' On save, update timestamps '''

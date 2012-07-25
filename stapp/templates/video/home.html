@@ -17,6 +17,9 @@ function changeDetail(video,image,idname,iddesc)
 {% block onload %}  {% endblock onload %}
 
 {% block video %}   
+{% for tag in tags %}
+    <a href="/tags/{{tag}}/">{{tag}}</a>
+{% endfor %}
     <video style="border:2px solid black;" width="100%"  controls="controls" id="mainvideo" poster="{{play.image.url}}"          preload="none" src="{{play.filename.url}}">
     </video>
 
