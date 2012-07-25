@@ -25,8 +25,10 @@ padding: 9px 0;
    <link rel="stylesheet" href="{{ STATIC_URL }}video/css/style.css" type="text/css" /> 
    {% block css %}
    {% endblock %}
-
+    <script src="{{ STATIC_URL }}video/js/jquery-min.js" type="text/javascript"></script>
    {% block script %}
+      
+      <!--script src="{{ STATIC_URL }}video/js/browser-check.js" type="text/javascript"></script-->
    {% endblock %}
    </head>
 
@@ -79,7 +81,7 @@ padding: 9px 0;
             {% endblock %}
 <hr>
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; FOSSEE, IIT-BOMBAY 2012</p>
       </footer>
     </div><!--/.fluid-container-->
 </body>

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title %}Unsupported browser{% endblock title %}
+
+{% block video %}
+    <h2> Welcome to the ST Application</h2>
+    <hr/>   
+    <h2>We have detected that you are using an outdated browser.</h2>
+    <p>The ST Application would not work on your browser. Please update your browser or install one of  the browsers mentioned below.</p>
+    <p>If you are an Internet Explorer user please see that <b>Compatibility View</b> has been turned 
+        <b>Off</b>. Click <a href="http://www.sevenforums.com/tutorials/1196-internet-explorer-compatibility-view-turn-off.html">here</a> to know how
+    </p>
+
+    <hr/>
+    <table>
+        <tr>
+        <td><a href="https://www.google.com/chrome" target="_blank"><img src="{{ STATIC_URL }}video/img/64-chrome.png" /></a></td>
+        <td><a href="http://www.getfirefox.com" target="_blank"><img src="{{ STATIC_URL }}video/img/64-firefox.png" / ></a></td>
+        <td><a href="http://windows.microsoft.com/en-IN/internet-explorer/products/ie/home" target="_blank"><img src="{{ STATIC_URL }}video/img/64-ie.png" /></a></td>
+        <td><a href="http://www.apple.com/safari/download/" target="_blank"><img src="{{ STATIC_URL }}video/img/64-safari.png" /></a></td>
+        </tr>
+    </table>
+
+{% endblock video %}
