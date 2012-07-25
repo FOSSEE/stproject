@@ -1,12 +1,11 @@
 {% extends "base.html" %}
 
-<!DOCTYPE html>
 {% block title %} STProject {% endblock %}
     
 
 {% block script %}
 <script>
-function myfunction(video,image,idname,iddesc)
+function changeDetail(video,image,idname,iddesc)
 {
         document.getElementById('videodescription').innerHTML = document.getElementById(iddesc).value;
         document.getElementById('videoname').innerHTML = document.getElementById(idname).innerHTML;
@@ -35,10 +34,9 @@ function myfunction(video,image,idname,iddesc)
         <div class="module-list"><h3>{{module.name}}</h3>
         <h5>{{module.description|safe}}</h5>
         {% for video in module.video_list.all %}
-
-        <textarea style="display:none;" id=vdesc{{forloop.counter}}>{{video.description}}
+        <textarea style="display:none;" id=vdesclatest{{forloop.parentloop.counter}}{{forloop.counter}} >{{video.description}}
         </textarea>
-        <a id='vname{{forloop.counter}}' href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}","vname{{forloop.counter}}","vdesc{{forloop.counter}}");>{{video.name}}</a>
+        <a id='vnamelatest{{forloop.parentloop.counter}}{{forloop.counter}}' href=javascript:changeDetail("{{video.filename.url}}","{{video.image.url}}","vnamelatest{{forloop.parentloop.counter}}{{forloop.counter}}","vdesclatest{{forloop.parentloop.counter}}{{forloop.counter}}");>{{video.name}}</a>
 
 
 
@@ -53,7 +51,10 @@ function myfunction(video,image,idname,iddesc)
         <div class="module-list"><h3>{{module.name}}</h3>
         <h5>{{module.description|safe}}</h5>
         {% for video in module.video_list.all %}
-        <a href=javascript:myfunction("{{video.filename.url}}","{{video.image.url}}");>{{video.name}}</a>
+        <textarea style="display:none;" id=vdesc{{forloop.parentloop.counter}}{{forloop.counter}}>{{video.description}}
+        </textarea>
+        <a id='vname{{forloop.parentloop.counter}}{{forloop.counter}}' href=javascript:changeDetail("{{video.filename.url}}","{{video.image.url}}","vname{{forloop.parentloop.counter}}{{forloop.counter}}","vdesc{{forloop.parentloop.counter}}{{forloop.counter}}");>{{video.name}}</a>
+
    <br />
         {% endfor %}</div>
     {% endfor %}
