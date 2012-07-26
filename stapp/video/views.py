@@ -11,7 +11,7 @@ def show(request):
 
     #Get the latest video to display on the front page
     latest_video = Video.objects.latest('created')
-    
+    return HttpResponse(latest_video.mykey)
     #Get last three modified modules
     latest_modules = Module.objects.order_by('-modified')[0:3]
     all_modules = Module.objects.order_by('modified')
