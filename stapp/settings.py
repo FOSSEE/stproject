@@ -4,7 +4,10 @@ import os
 PROJECT_DIR = os.path.dirname(__file__)
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Parth Buch', 'parth@fossee.in'),
+    ('Hardik Ghaghada','hardik@fossee.in'),
+    ('Jay Parikh','jay@fossee.in'),
+    ('Radhika Mandra','radhika@fossee.in'),
 )
 
 MANAGERS = ADMINS
