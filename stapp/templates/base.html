@@ -12,15 +12,6 @@
 	<meta name="author" content="">
    {% endblock %}
    
-   <style>
-body {
-padding-top: 60px;
-padding-bottom: 40px;
-}
-.sidebar-nav {
-padding: 9px 0;
-} 
-</style>
    <link rel="stylesheet" href="{{ STATIC_URL }}video/css/base.css" type="text/css" /> 
    <link rel="stylesheet" href="{{ STATIC_URL }}video/css/style.css" type="text/css" /> 
    {% block css %}
@@ -70,7 +61,7 @@ padding: 9px 0;
                     {% block video %}
                     {% endblock %}
                 </div>
-                <div class="span6">
+                <div class="span6" id="video-panel">
                   {% block video_description%}
                   {% endblock %}
                 </div>
@@ -79,10 +70,10 @@ padding: 9px 0;
 
             {% block module_list %}
             {% endblock %}
-<hr>
-      <footer>
-        <p>&copy; FOSSEE, IIT-BOMBAY 2012</p>
-      </footer>
     </div><!--/.fluid-container-->
+    <footer>
+        <center>STApp is brought to you by FOSSEE<br/>
+                <a href="http://www.fossee.in" title="fossee" target="_blank"><img src="{{ STATIC_URL }}video/img/fossee.jpg" height="50px"></a></center>
+      </footer>
 </body>
 </html>
