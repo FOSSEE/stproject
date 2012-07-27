@@ -13,7 +13,7 @@ def show(request):
     latest_video = Video.objects.latest('created')
     
     #Get last three modified modules
-    latest_modules = Module.objects.order_by('-modified')[0:3]
+    latest_modules = Module.objects.order_by('-modified')[0:4]
     all_modules = Module.objects.order_by('modified')
     tags = Tag.objects.all()
 
