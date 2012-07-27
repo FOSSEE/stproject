@@ -49,7 +49,7 @@ function changeDetail(video,image,idname,iddesc)
     <div class="row-fluid module-row">
     <h1>All Modules</h1>
     {% for module in all_modules %}
-        <div class="module-list"><h3>{{module.name}}</h3>
+        <div class="module-list"><h3 class="title">{{module.name}}</h3>
         <h5 class="module-description">{{module.description|safe}}</h5>
         {% for video in module.video_list.all %}
         <textarea style="display:none;" id=vdesc{{forloop.parentloop.counter}}{{forloop.counter}}>{{video.description}}
